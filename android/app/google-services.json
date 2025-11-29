@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "469038501434",
+    "project_id": "tormentor-records",
+    "storage_bucket": "tormentor-records.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:469038501434:android:9a2d5c4e3591a13c572f03",
+        "android_client_info": {
+          "package_name": "com.mycompany.tormentorrecords"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCKzm_tojY82nlTLzLyL18yQejZbJdEVwA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
