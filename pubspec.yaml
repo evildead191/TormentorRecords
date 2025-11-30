@@ -130,6 +130,16 @@ flutter:
     - family: 'TormentorType1'
       fonts:
         - asset: assets/fonts/BLACEB__.TTF
+    - family: 'BLACEB'
+      fonts:
+        - asset: assets/fonts/BLACEB__.TTF
+        - asset: assets/fonts/Blacklettersh.ttf
+          weight: 900
+    - family: 'Tormentor'
+      fonts:
+        - asset: assets/fonts/BLACEB__.TTF
+        - asset: assets/fonts/Blacklettersh.ttf
+          style: italic
 
 
   # An image asset can refer to one or more resolution-specific "variants", see

@@ -1,28 +1,9 @@
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'login1_model.dart';
 export 'login1_model.dart';
 
-/// Create a Login Page with this structure and dark metal style:
-///
-/// Background #0D0D0D.
-///
-/// Title font Blacklettersh, text font BLACEB__. Main accent #6E0000.
-///
-/// Main Column centered:
-/// 1. Text "Tormentor Records", size 32, white, Blacklettersh.
-/// 2. Spacer 30.
-/// 3. TextField "Correo electrónico", bg #1A1A1A, border #6E0000 radius 10,
-/// white text.
-/// 4. Spacer 15.
-/// 5. TextField "Contraseña", password mode, same style.
-/// 6. Spacer 15.
-/// 7. Button "Iniciar Sesión", width 300, height 50, bg #6E0000, text white,
-/// radius 12.
-/// 8. Spacer 10.
-/// 9. TextButton "¿No tienes cuenta? Regístrate aquí".
 class Login1Widget extends StatefulWidget {
   const Login1Widget({super.key});
 
@@ -76,13 +57,26 @@ class _Login1WidgetState extends State<Login1Widget> {
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                ClipRRect(
-                  borderRadius: BorderRadius.circular(8.0),
-                  child: Image.asset(
-                    'assets/images/Tormentor_Logo.png',
-                    width: MediaQuery.sizeOf(context).width * 1.0,
-                    height: 196.36,
-                    fit: BoxFit.cover,
+                Container(
+                  width: 337.8,
+                  height: 500.95,
+                  decoration: BoxDecoration(
+                    color: Color(0xFF0D0D0D),
+                    borderRadius: BorderRadius.only(
+                      bottomLeft: Radius.circular(10.0),
+                      bottomRight: Radius.circular(10.0),
+                      topLeft: Radius.circular(10.0),
+                      topRight: Radius.circular(10.0),
+                    ),
+                  ),
+                  child: ClipRRect(
+                    borderRadius: BorderRadius.circular(20.0),
+                    child: Image.asset(
+                      'assets/images/Tormentor_Logo.png',
+                      width: 200.0,
+                      height: 200.0,
+                      fit: BoxFit.cover,
+                    ),
                   ),
                 ),
                 Container(
@@ -96,7 +90,8 @@ class _Login1WidgetState extends State<Login1Widget> {
                   obscureText: false,
                   decoration: InputDecoration(
                     hintText: 'Correo electrónico',
-                    hintStyle: GoogleFonts.roboto(
+                    hintStyle: TextStyle(
+                      fontFamily: 'BLACEB',
                       color: Color(0xFFCCCCCC),
                     ),
                     enabledBorder: OutlineInputBorder(
@@ -130,7 +125,8 @@ class _Login1WidgetState extends State<Login1Widget> {
                     filled: true,
                     fillColor: Color(0xFF1A1A1A),
                   ),
-                  style: GoogleFonts.roboto(
+                  style: TextStyle(
+                    fontFamily: 'TormentorType1',
                     color: Colors.white,
                   ),
                   keyboardType: TextInputType.emailAddress,
@@ -149,7 +145,8 @@ class _Login1WidgetState extends State<Login1Widget> {
                   obscureText: !_model.passwordVisibility,
                   decoration: InputDecoration(
                     hintText: 'Contraseña',
-                    hintStyle: GoogleFonts.roboto(
+                    hintStyle: TextStyle(
+                      fontFamily: 'BLACEB',
                       color: Color(0xFFCCCCCC),
                     ),
                     enabledBorder: OutlineInputBorder(
@@ -197,7 +194,8 @@ class _Login1WidgetState extends State<Login1Widget> {
                       ),
                     ),
                   ),
-                  style: GoogleFonts.roboto(
+                  style: TextStyle(
+                    fontFamily: 'BLACEB',
                     color: Colors.white,
                   ),
                   cursorColor: Colors.white,
@@ -220,7 +218,8 @@ class _Login1WidgetState extends State<Login1Widget> {
                     iconPadding:
                         EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
                     color: Color(0xFF6E0000),
-                    textStyle: GoogleFonts.roboto(
+                    textStyle: TextStyle(
+                      fontFamily: 'BLACEB',
                       color: Colors.white,
                       fontWeight: FontWeight.w600,
                     ),
@@ -246,7 +245,8 @@ class _Login1WidgetState extends State<Login1Widget> {
                     iconPadding:
                         EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
                     color: Colors.transparent,
-                    textStyle: GoogleFonts.roboto(
+                    textStyle: TextStyle(
+                      fontFamily: 'BLACEB',
                       color: Color(0xFFCCCCCC),
                       fontWeight: FontWeight.normal,
                     ),

@@ -3,8 +3,17 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
+enum DeviceSize {
+  mobile,
+  tablet,
+  desktop,
+}
+
 abstract class FlutterFlowTheme {
+  static DeviceSize deviceSize = DeviceSize.mobile;
+
   static FlutterFlowTheme of(BuildContext context) {
+    deviceSize = getDeviceSize(context);
     return LightModeTheme();
   }
 
@@ -107,7 +116,22 @@ abstract class FlutterFlowTheme {
   bool get bodySmallIsCustom => typography.bodySmallIsCustom;
   TextStyle get bodySmall => typography.bodySmall;
 
-  Typography get typography => ThemeTypography(this);
+  Typography get typography => {
+        DeviceSize.mobile: MobileTypography(this),
+        DeviceSize.tablet: TabletTypography(this),
+        DeviceSize.desktop: DesktopTypography(this),
+      }[deviceSize]!;
+}
+
+DeviceSize getDeviceSize(BuildContext context) {
+  final width = MediaQuery.sizeOf(context).width;
+  if (width < 479) {
+    return DeviceSize.mobile;
+  } else if (width < 991) {
+    return DeviceSize.tablet;
+  } else {
+    return DeviceSize.desktop;
+  }
 }
 
 class LightModeTheme extends FlutterFlowTheme {
@@ -184,116 +208,160 @@ abstract class Typography {
   TextStyle get bodySmall;
 }
 
-class ThemeTypography extends Typography {
-  ThemeTypography(this.theme);
+class MobileTypography extends Typography {
+  MobileTypography(this.theme);
 
   final FlutterFlowTheme theme;
 
-  String get displayLargeFamily => 'Inter Tight';
+  String get displayLargeFamily => '';
   bool get displayLargeIsCustom => false;
-  TextStyle get displayLarge => GoogleFonts.interTight(
-        color: theme.primaryText,
-        fontWeight: FontWeight.w600,
-        fontSize: 64.0,
-      );
-  String get displayMediumFamily => 'Inter Tight';
+  TextStyle get displayLarge => GoogleFonts.roboto();
+  String get displayMediumFamily => '';
   bool get displayMediumIsCustom => false;
-  TextStyle get displayMedium => GoogleFonts.interTight(
-        color: theme.primaryText,
-        fontWeight: FontWeight.w600,
-        fontSize: 44.0,
-      );
-  String get displaySmallFamily => 'Inter Tight';
+  TextStyle get displayMedium => GoogleFonts.roboto();
+  String get displaySmallFamily => '';
   bool get displaySmallIsCustom => false;
-  TextStyle get displaySmall => GoogleFonts.interTight(
-        color: theme.primaryText,
-        fontWeight: FontWeight.w600,
-        fontSize: 36.0,
-      );
-  String get headlineLargeFamily => 'Inter Tight';
+  TextStyle get displaySmall => GoogleFonts.roboto();
+  String get headlineLargeFamily => '';
   bool get headlineLargeIsCustom => false;
-  TextStyle get headlineLarge => GoogleFonts.interTight(
-        color: theme.primaryText,
-        fontWeight: FontWeight.w600,
-        fontSize: 32.0,
-      );
-  String get headlineMediumFamily => 'Inter Tight';
+  TextStyle get headlineLarge => GoogleFonts.roboto();
+  String get headlineMediumFamily => '';
   bool get headlineMediumIsCustom => false;
-  TextStyle get headlineMedium => GoogleFonts.interTight(
-        color: theme.primaryText,
-        fontWeight: FontWeight.w600,
-        fontSize: 28.0,
-      );
-  String get headlineSmallFamily => 'Inter Tight';
+  TextStyle get headlineMedium => GoogleFonts.roboto();
+  String get headlineSmallFamily => '';
   bool get headlineSmallIsCustom => false;
-  TextStyle get headlineSmall => GoogleFonts.interTight(
-        color: theme.primaryText,
-        fontWeight: FontWeight.w600,
-        fontSize: 24.0,
-      );
-  String get titleLargeFamily => 'Inter Tight';
+  TextStyle get headlineSmall => GoogleFonts.roboto();
+  String get titleLargeFamily => '';
   bool get titleLargeIsCustom => false;
-  TextStyle get titleLarge => GoogleFonts.interTight(
-        color: theme.primaryText,
-        fontWeight: FontWeight.w600,
-        fontSize: 20.0,
-      );
-  String get titleMediumFamily => 'Inter Tight';
+  TextStyle get titleLarge => GoogleFonts.roboto();
+  String get titleMediumFamily => '';
   bool get titleMediumIsCustom => false;
-  TextStyle get titleMedium => GoogleFonts.interTight(
-        color: theme.primaryText,
-        fontWeight: FontWeight.w600,
-        fontSize: 18.0,
-      );
-  String get titleSmallFamily => 'Inter Tight';
+  TextStyle get titleMedium => GoogleFonts.roboto();
+  String get titleSmallFamily => '';
   bool get titleSmallIsCustom => false;
-  TextStyle get titleSmall => GoogleFonts.interTight(
-        color: theme.primaryText,
-        fontWeight: FontWeight.w600,
-        fontSize: 16.0,
-      );
-  String get labelLargeFamily => 'Inter';
+  TextStyle get titleSmall => GoogleFonts.roboto();
+  String get labelLargeFamily => '';
   bool get labelLargeIsCustom => false;
-  TextStyle get labelLarge => GoogleFonts.inter(
-        color: theme.secondaryText,
-        fontWeight: FontWeight.normal,
-        fontSize: 16.0,
-      );
-  String get labelMediumFamily => 'Inter';
+  TextStyle get labelLarge => GoogleFonts.roboto();
+  String get labelMediumFamily => '';
   bool get labelMediumIsCustom => false;
-  TextStyle get labelMedium => GoogleFonts.inter(
-        color: theme.secondaryText,
-        fontWeight: FontWeight.normal,
-        fontSize: 14.0,
-      );
-  String get labelSmallFamily => 'Inter';
+  TextStyle get labelMedium => GoogleFonts.roboto();
+  String get labelSmallFamily => '';
   bool get labelSmallIsCustom => false;
-  TextStyle get labelSmall => GoogleFonts.inter(
-        color: theme.secondaryText,
-        fontWeight: FontWeight.normal,
-        fontSize: 12.0,
-      );
-  String get bodyLargeFamily => 'Inter';
+  TextStyle get labelSmall => GoogleFonts.roboto();
+  String get bodyLargeFamily => '';
   bool get bodyLargeIsCustom => false;
-  TextStyle get bodyLarge => GoogleFonts.inter(
-        color: theme.primaryText,
-        fontWeight: FontWeight.normal,
-        fontSize: 16.0,
-      );
-  String get bodyMediumFamily => 'Inter';
+  TextStyle get bodyLarge => GoogleFonts.roboto();
+  String get bodyMediumFamily => '';
   bool get bodyMediumIsCustom => false;
-  TextStyle get bodyMedium => GoogleFonts.inter(
-        color: theme.primaryText,
-        fontWeight: FontWeight.normal,
-        fontSize: 14.0,
-      );
-  String get bodySmallFamily => 'Inter';
+  TextStyle get bodyMedium => GoogleFonts.roboto();
+  String get bodySmallFamily => '';
   bool get bodySmallIsCustom => false;
-  TextStyle get bodySmall => GoogleFonts.inter(
-        color: theme.primaryText,
-        fontWeight: FontWeight.normal,
-        fontSize: 12.0,
-      );
+  TextStyle get bodySmall => GoogleFonts.roboto();
+}
+
+class TabletTypography extends Typography {
+  TabletTypography(this.theme);
+
+  final FlutterFlowTheme theme;
+
+  String get displayLargeFamily => '';
+  bool get displayLargeIsCustom => false;
+  TextStyle get displayLarge => GoogleFonts.roboto();
+  String get displayMediumFamily => '';
+  bool get displayMediumIsCustom => false;
+  TextStyle get displayMedium => GoogleFonts.roboto();
+  String get displaySmallFamily => '';
+  bool get displaySmallIsCustom => false;
+  TextStyle get displaySmall => GoogleFonts.roboto();
+  String get headlineLargeFamily => '';
+  bool get headlineLargeIsCustom => false;
+  TextStyle get headlineLarge => GoogleFonts.roboto();
+  String get headlineMediumFamily => '';
+  bool get headlineMediumIsCustom => false;
+  TextStyle get headlineMedium => GoogleFonts.roboto();
+  String get headlineSmallFamily => '';
+  bool get headlineSmallIsCustom => false;
+  TextStyle get headlineSmall => GoogleFonts.roboto();
+  String get titleLargeFamily => '';
+  bool get titleLargeIsCustom => false;
+  TextStyle get titleLarge => GoogleFonts.roboto();
+  String get titleMediumFamily => '';
+  bool get titleMediumIsCustom => false;
+  TextStyle get titleMedium => GoogleFonts.roboto();
+  String get titleSmallFamily => '';
+  bool get titleSmallIsCustom => false;
+  TextStyle get titleSmall => GoogleFonts.roboto();
+  String get labelLargeFamily => '';
+  bool get labelLargeIsCustom => false;
+  TextStyle get labelLarge => GoogleFonts.roboto();
+  String get labelMediumFamily => '';
+  bool get labelMediumIsCustom => false;
+  TextStyle get labelMedium => GoogleFonts.roboto();
+  String get labelSmallFamily => '';
+  bool get labelSmallIsCustom => false;
+  TextStyle get labelSmall => GoogleFonts.roboto();
+  String get bodyLargeFamily => '';
+  bool get bodyLargeIsCustom => false;
+  TextStyle get bodyLarge => GoogleFonts.roboto();
+  String get bodyMediumFamily => '';
+  bool get bodyMediumIsCustom => false;
+  TextStyle get bodyMedium => GoogleFonts.roboto();
+  String get bodySmallFamily => '';
+  bool get bodySmallIsCustom => false;
+  TextStyle get bodySmall => GoogleFonts.roboto();
+}
+
+class DesktopTypography extends Typography {
+  DesktopTypography(this.theme);
+
+  final FlutterFlowTheme theme;
+
+  String get displayLargeFamily => '';
+  bool get displayLargeIsCustom => false;
+  TextStyle get displayLarge => GoogleFonts.roboto();
+  String get displayMediumFamily => '';
+  bool get displayMediumIsCustom => false;
+  TextStyle get displayMedium => GoogleFonts.roboto();
+  String get displaySmallFamily => '';
+  bool get displaySmallIsCustom => false;
+  TextStyle get displaySmall => GoogleFonts.roboto();
+  String get headlineLargeFamily => '';
+  bool get headlineLargeIsCustom => false;
+  TextStyle get headlineLarge => GoogleFonts.roboto();
+  String get headlineMediumFamily => '';
+  bool get headlineMediumIsCustom => false;
+  TextStyle get headlineMedium => GoogleFonts.roboto();
+  String get headlineSmallFamily => '';
+  bool get headlineSmallIsCustom => false;
+  TextStyle get headlineSmall => GoogleFonts.roboto();
+  String get titleLargeFamily => '';
+  bool get titleLargeIsCustom => false;
+  TextStyle get titleLarge => GoogleFonts.roboto();
+  String get titleMediumFamily => '';
+  bool get titleMediumIsCustom => false;
+  TextStyle get titleMedium => GoogleFonts.roboto();
+  String get titleSmallFamily => '';
+  bool get titleSmallIsCustom => false;
+  TextStyle get titleSmall => GoogleFonts.roboto();
+  String get labelLargeFamily => '';
+  bool get labelLargeIsCustom => false;
+  TextStyle get labelLarge => GoogleFonts.roboto();
+  String get labelMediumFamily => '';
+  bool get labelMediumIsCustom => false;
+  TextStyle get labelMedium => GoogleFonts.roboto();
+  String get labelSmallFamily => '';
+  bool get labelSmallIsCustom => false;
+  TextStyle get labelSmall => GoogleFonts.roboto();
+  String get bodyLargeFamily => '';
+  bool get bodyLargeIsCustom => false;
+  TextStyle get bodyLarge => GoogleFonts.roboto();
+  String get bodyMediumFamily => '';
+  bool get bodyMediumIsCustom => false;
+  TextStyle get bodyMedium => GoogleFonts.roboto();
+  String get bodySmallFamily => '';
+  bool get bodySmallIsCustom => false;
+  TextStyle get bodySmall => GoogleFonts.roboto();
 }
 
 extension TextStyleHelper on TextStyle {

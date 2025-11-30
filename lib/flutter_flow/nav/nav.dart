@@ -98,6 +98,11 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           name: RegisterWidget.routeName,
           path: RegisterWidget.routePath,
           builder: (context, params) => RegisterWidget(),
+        ),
+        FFRoute(
+          name: DetalleArtistaWidget.routeName,
+          path: DetalleArtistaWidget.routePath,
+          builder: (context, params) => DetalleArtistaWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
     );
