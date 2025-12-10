@@ -1,4 +1,4 @@
-package com.mycompany.tormentorrecords
+package com.fidelitas.tormentorrecords
 
 import io.flutter.embedding.android.FlutterActivity
 

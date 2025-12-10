@@ -213,9 +213,9 @@ class MobileTypography extends Typography {
 
   final FlutterFlowTheme theme;
 
-  String get displayLargeFamily => '';
+  String get displayLargeFamily => 'Montserrat';
   bool get displayLargeIsCustom => false;
-  TextStyle get displayLarge => GoogleFonts.roboto();
+  TextStyle get displayLarge => GoogleFonts.montserrat();
   String get displayMediumFamily => '';
   bool get displayMediumIsCustom => false;
   TextStyle get displayMedium => GoogleFonts.roboto();

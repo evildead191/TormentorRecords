@@ -76,18 +76,13 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
       refreshListenable: appStateNotifier,
       navigatorKey: appNavigatorKey,
       errorBuilder: (context, state) =>
-          appStateNotifier.loggedIn ? IndexWidget() : Login1Widget(),
+          appStateNotifier.loggedIn ? HomeWidget() : Login1Widget(),
       routes: [
         FFRoute(
           name: '_initialize',
           path: '/',
           builder: (context, _) =>
-              appStateNotifier.loggedIn ? IndexWidget() : Login1Widget(),
-        ),
-        FFRoute(
-          name: IndexWidget.routeName,
-          path: IndexWidget.routePath,
-          builder: (context, params) => IndexWidget(),
+              appStateNotifier.loggedIn ? HomeWidget() : Login1Widget(),
         ),
         FFRoute(
           name: Login1Widget.routeName,
@@ -100,9 +95,69 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           builder: (context, params) => RegisterWidget(),
         ),
         FFRoute(
-          name: DetalleArtistaWidget.routeName,
-          path: DetalleArtistaWidget.routePath,
-          builder: (context, params) => DetalleArtistaWidget(),
+          name: ArtistadetalleChemicideWidget.routeName,
+          path: ArtistadetalleChemicideWidget.routePath,
+          builder: (context, params) => ArtistadetalleChemicideWidget(),
+        ),
+        FFRoute(
+          name: AlbumdetalleWidget.routeName,
+          path: AlbumdetalleWidget.routePath,
+          builder: (context, params) => AlbumdetalleWidget(),
+        ),
+        FFRoute(
+          name: NewartistcrudWidget.routeName,
+          path: NewartistcrudWidget.routePath,
+          builder: (context, params) => NewartistcrudWidget(),
+        ),
+        FFRoute(
+          name: NoticiasWidget.routeName,
+          path: NoticiasWidget.routePath,
+          builder: (context, params) => NoticiasWidget(),
+        ),
+        FFRoute(
+          name: HomeWidget.routeName,
+          path: HomeWidget.routePath,
+          builder: (context, params) => HomeWidget(),
+        ),
+        FFRoute(
+          name: CdsVinilosWidget.routeName,
+          path: CdsVinilosWidget.routePath,
+          builder: (context, params) => CdsVinilosWidget(),
+        ),
+        FFRoute(
+          name: ArtistasViewWidget.routeName,
+          path: ArtistasViewWidget.routePath,
+          builder: (context, params) => ArtistasViewWidget(),
+        ),
+        FFRoute(
+          name: CamisasWidget.routeName,
+          path: CamisasWidget.routePath,
+          builder: (context, params) => CamisasWidget(),
+        ),
+        FFRoute(
+          name: ArtistadetalleAttackSickWidget.routeName,
+          path: ArtistadetalleAttackSickWidget.routePath,
+          builder: (context, params) => ArtistadetalleAttackSickWidget(),
+        ),
+        FFRoute(
+          name: ArtistadetalleHwlerWidget.routeName,
+          path: ArtistadetalleHwlerWidget.routePath,
+          builder: (context, params) => ArtistadetalleHwlerWidget(),
+        ),
+        FFRoute(
+          name: ArtistadetalleMrtualWidget.routeName,
+          path: ArtistadetalleMrtualWidget.routePath,
+          builder: (context, params) => ArtistadetalleMrtualWidget(),
+        ),
+        FFRoute(
+          name: SobreNosotrosWidget.routeName,
+          path: SobreNosotrosWidget.routePath,
+          builder: (context, params) => SobreNosotrosWidget(),
+        ),
+        FFRoute(
+          name: NewNewsWidget.routeName,
+          path: NewNewsWidget.routePath,
+          builder: (context, params) => NewNewsWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
     );

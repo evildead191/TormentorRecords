@@ -1,31 +1,32 @@
 import '/flutter_flow/flutter_flow_util.dart';
+import '/index.dart';
 import 'login1_widget.dart' show Login1Widget;
 import 'package:flutter/material.dart';
 
 class Login1Model extends FlutterFlowModel<Login1Widget> {
   ///  State fields for stateful widgets in this page.
 
-  // State field(s) for TextField widget.
-  FocusNode? textFieldFocusNode1;
-  TextEditingController? textController1;
-  String? Function(BuildContext, String?)? textController1Validator;
-  // State field(s) for TextField widget.
-  FocusNode? textFieldFocusNode2;
-  TextEditingController? textController2;
-  late bool passwordVisibility;
-  String? Function(BuildContext, String?)? textController2Validator;
+  // State field(s) for txtcorreo widget.
+  FocusNode? txtcorreoFocusNode;
+  TextEditingController? txtcorreoTextController;
+  String? Function(BuildContext, String?)? txtcorreoTextControllerValidator;
+  // State field(s) for txtcontra widget.
+  FocusNode? txtcontraFocusNode;
+  TextEditingController? txtcontraTextController;
+  late bool txtcontraVisibility;
+  String? Function(BuildContext, String?)? txtcontraTextControllerValidator;
 
   @override
   void initState(BuildContext context) {
-    passwordVisibility = false;
+    txtcontraVisibility = false;
   }
 
   @override
   void dispose() {
-    textFieldFocusNode1?.dispose();
-    textController1?.dispose();
+    txtcorreoFocusNode?.dispose();
+    txtcorreoTextController?.dispose();
 
-    textFieldFocusNode2?.dispose();
-    textController2?.dispose();
+    txtcontraFocusNode?.dispose();
+    txtcontraTextController?.dispose();
   }
 }

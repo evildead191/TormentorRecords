@@ -1,8 +1,9 @@
 import '/flutter_flow/flutter_flow_util.dart';
-import 'detalle_artista_widget.dart' show DetalleArtistaWidget;
+import '/index.dart';
+import 'albumdetalle_widget.dart' show AlbumdetalleWidget;
 import 'package:flutter/material.dart';
 
-class DetalleArtistaModel extends FlutterFlowModel<DetalleArtistaWidget> {
+class AlbumdetalleModel extends FlutterFlowModel<AlbumdetalleWidget> {
   @override
   void initState(BuildContext context) {}
 
